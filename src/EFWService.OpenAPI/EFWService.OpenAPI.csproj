@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4BBBB3F4-558E-4439-8DAF-826AE413183E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EFWService.OpenAPI</RootNamespace>
+    <AssemblyName>EFWService.OpenAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIContentResult.cs" />
+    <Compile Include="ApiExecuteAround\ApiExecuteAroundForBaseInfo.cs" />
+    <Compile Include="ApiExecuteAround\DefaultApiExecuteAround.cs" />
+    <Compile Include="ApiMethodBaseCore.cs" />
+    <Compile Include="ApiMethodBaseExtend.cs" />
+    <Compile Include="ApiMethodMetaCacheHandler.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\ApiMethodDescAttribute.cs" />
+    <Compile Include="Authentication\HttpMethodAuthentication.cs" />
+    <Compile Include="Authentication\IAuthentication.cs" />
+    <Compile Include="DynamicController\ApiMethodMeta.cs" />
+    <Compile Include="DynamicController\AssemblyLocator.cs" />
+    <Compile Include="DynamicController\AutofacExt\AutofacControllerFactory.cs" />
+    <Compile Include="DynamicController\AutofacExt\AutofacDependencyResolver.cs" />
+    <Compile Include="DynamicController\BaseController.cs" />
+    <Compile Include="DynamicController\Bootstrapper.cs" />
+    <Compile Include="DynamicController\CompileHelper.cs" />
+    <Compile Include="ExceptionProcess\ApiExceptionProcess.cs" />
+    <Compile Include="ExceptionProcess\ErrorHandler.cs" />
+    <Compile Include="ExceptionProcess\HttpExceptionProcess.cs" />
+    <Compile Include="ExceptionProcess\IExceptionProcess.cs" />
+    <Compile Include="ExceptionProcess\NocatchExceptionProcess.cs" />
+    <Compile Include="Exceptions\ApiException.cs" />
+    <Compile Include="Exceptions\ResultIgnoreDictEx.cs" />
+    <Compile Include="GlobalHost.cs" />
+    <Compile Include="InnerMethod\MetaCacheMethod.cs" />
+    <Compile Include="InnerMethod\WelComeMethod.cs" />
+    <Compile Include="JsonPostProviderFactory.cs" />
+    <Compile Include="Logger\ApiLogBase.cs" />
+    <Compile Include="Logger\GenericApiLogger.cs" />
+    <Compile Include="Logger\IApiLogger.cs" />
+    <Compile Include="Model\APIContentType.cs" />
+    <Compile Include="Model\RequestParamsCheckModel.cs" />
+    <Compile Include="OpenAPIHelper.cs" />
+    <Compile Include="OutputProcessor\IOutputProcessor.cs" />
+    <Compile Include="OutputProcessor\JsonOutputProcessor.cs" />
+    <Compile Include="OutputProcessor\XmlOutputProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Decryption.cs" />
+    <Compile Include="Utils\JsonConvertExd.cs" />
+    <Compile Include="Utils\ParamsCheckHelper.cs" />
+    <Compile Include="Utils\WebBaseUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EFWService.OpenAPI.Models\EFWService.OpenAPI.Model.csproj">
+      <Project>{406c9583-26db-4a60-b794-c7e504b2a591}</Project>
+      <Name>EFWService.OpenAPI.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
