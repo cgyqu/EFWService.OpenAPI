@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{EC1D4813-957D-45C2-8187-DF095AF455B5}"
 EndProject
@@ -15,9 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFWService.OpenAPI", "EFWSe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFWService.Core.OpenAPI", "EFWService.Core.OpenAPI\EFWService.Core.OpenAPI.csproj", "{BC76B911-FC7E-4352-A268-23F29A739DFF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFWService.Core.WebAPI.OpenAPI", "EFWService.Core.WebAPI.OpenAPI\EFWService.Core.WebAPI.OpenAPI.csproj", "{0EBAD970-573F-42F9-B549-754BB945535C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFWService.OpenAPI.Logger", "EFWService.OpenAPI.Logger\EFWService.OpenAPI.Logger.csproj", "{2F363954-9975-48D5-BC0B-732FFA08ADC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFWService.OpenAPI.Logger", "EFWService.OpenAPI.Logger\EFWService.OpenAPI.Logger.csproj", "{2F363954-9975-48D5-BC0B-732FFA08ADC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +43,6 @@ Global
 		{BC76B911-FC7E-4352-A268-23F29A739DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC76B911-FC7E-4352-A268-23F29A739DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC76B911-FC7E-4352-A268-23F29A739DFF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0EBAD970-573F-42F9-B549-754BB945535C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EBAD970-573F-42F9-B549-754BB945535C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0EBAD970-573F-42F9-B549-754BB945535C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0EBAD970-573F-42F9-B549-754BB945535C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2F363954-9975-48D5-BC0B-732FFA08ADC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2F363954-9975-48D5-BC0B-732FFA08ADC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F363954-9975-48D5-BC0B-732FFA08ADC0}.Release|Any CPU.ActiveCfg = Release|Any CPU

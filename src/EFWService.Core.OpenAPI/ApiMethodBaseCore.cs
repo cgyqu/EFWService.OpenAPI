@@ -68,14 +68,14 @@ namespace EFWService.Core.OpenAPI
             ResponseModelType responseModel = null;
             try
             {
-                ExecuteBegin();
+                StartExecute();
                 BeginLog(apiLogEntity, request);
                 //选择输出
                 SwitchOutputProcessor(request);
                 //执行验证器
                 Verify(request);
                 //post请求需要进行数据解析，默认进行json解析
-                StructuredPostDataProcess(ref request);
+                FormatPostDataProcess(ref request);
                 //参数验证
                 DoRequestParamsCheck(request);
                 //执行业务逻辑
@@ -96,7 +96,7 @@ namespace EFWService.Core.OpenAPI
                 MonitorException(ex);
                 content = ErrorHandler.Process<RequestModelType, ResponseModelType>(GetErrorContent, ex, request, apiLogEntity, apiMethodMetaInfo);
             }
-            ExecuteEnd();
+            EndExecute();
             _EndLog(apiLogEntity, request, responseModel);
             HttpResponse.ContentType = GetContentType(request);
             return content;
@@ -167,7 +167,7 @@ namespace EFWService.Core.OpenAPI
         /// 参数反序列化
         /// </summary>
         /// <param name="request"></param>
-        public virtual void StructuredPostDataProcess(ref RequestModelType request)
+        public virtual void FormatPostDataProcess(ref RequestModelType request)
         {
             try
             {
@@ -237,7 +237,7 @@ namespace EFWService.Core.OpenAPI
             #region 执行验证接口管道
             foreach (var auth in WebBaseUtil.AuthenticationPipeline)
             {
-                auth.Verify<RequestModelType, ResponseModelType>(this, request);
+                auth.Verify(this, request);
             }
             #endregion
         }
@@ -285,7 +285,7 @@ namespace EFWService.Core.OpenAPI
         /// <summary>
         /// 执行前操作
         /// </summary>
-        private void ExecuteBegin()
+        private void StartExecute()
         {
             foreach (var auth in WebBaseUtil.ApiExecuteAroundPipeline)
             {
@@ -299,7 +299,7 @@ namespace EFWService.Core.OpenAPI
         /// <summary>
         /// 执行后操作
         /// </summary>
-        private void ExecuteEnd()
+        private void EndExecute()
         {
             foreach (var auth in WebBaseUtil.ApiExecuteAroundPipeline)
             {
