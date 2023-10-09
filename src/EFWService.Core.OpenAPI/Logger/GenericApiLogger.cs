@@ -16,7 +16,7 @@ namespace EFWService.Core.OpenAPI.Logger
         public void Log(ApiLogEntity log)
         {
             log.LogFinish();
-            if (log.Exception == null && CloesNotExceptionLogSwitch != null && CloesNotExceptionLogSwitch() == true)
+            if (log.Exception == null && CloesNotExceptionLogSwitch != null && CloesNotExceptionLogSwitch())
             {
                 return;
             }

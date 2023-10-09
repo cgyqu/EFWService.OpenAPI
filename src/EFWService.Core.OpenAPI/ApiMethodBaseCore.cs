@@ -176,10 +176,6 @@ namespace EFWService.Core.OpenAPI
                     request = JsonConvertExd.Deserialize<RequestModelType>(this.PostData);
                 }
             }
-            catch (ApiException)
-            {
-                throw;
-            }
             catch (Exception ex)
             {
                 throw new ApiException(ApiResultCode.ParamsError) { ErrorMessage = "提交数据存在异常:" + ex.Message };

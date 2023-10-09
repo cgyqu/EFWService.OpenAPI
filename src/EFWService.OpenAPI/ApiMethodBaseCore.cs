@@ -149,6 +149,14 @@ namespace EFWService.OpenAPI
         /// <returns></returns>
         private void DoRequestParamsCheck(ModelStateDictionary modelState, RequestModelType request)
         {
+            if (!modelState.IsValid) 
+            {
+                var list = modelState.Values.SelectMany(x => x.Errors).ToList()
+                  .Select(x => x.ErrorMessage).ToList();
+                var message = string.Join("\r\n", list);
+                throw new ApiException(ApiResultCode.ParamsError) { ErrorMessage = message };
+            }
+
             ParamsCheckHelper paramsCheckHelper = new ParamsCheckHelper();
             var result = RequestParamsCheck(modelState, request, paramsCheckHelper);
             if (!result.Success)

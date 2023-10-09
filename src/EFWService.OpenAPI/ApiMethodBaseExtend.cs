@@ -72,7 +72,7 @@ namespace EFWService.OpenAPI
         /// <summary>
         /// 超级上下文 其实就是BaseController->Controller的一切信息
         /// </summary>
-        public DynamicController.BaseController SuperContext { get; set; }
+        public BaseController SuperContext { get; set; }
 
 
         private static Dictionary<string, IOutputProcessor> outPrDict = new Dictionary<string, IOutputProcessor>()
